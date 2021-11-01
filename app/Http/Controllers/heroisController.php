@@ -24,7 +24,8 @@ class heroisController extends Controller
      */
     public function create()
     {
-        //
+        //Retorna a view Create
+        return view('herois.create');
     }
 
     /**
@@ -57,7 +58,8 @@ class heroisController extends Controller
      */
     public function edit(herois $herois)
     {
-        //
+        //Retorna a view de edicao
+        return view('herois.edit');
     }
 
     /**

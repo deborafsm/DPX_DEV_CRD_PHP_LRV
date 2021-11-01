@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\heroisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+// Route::get('/adicionar_herois', function() {
+//     return View('addHerois');
+// });
+
+Route::resource('herois', heroisController::class); 
