@@ -14,6 +14,7 @@ class heroisController extends Controller
      */
     public function index()
     {
+        return view('herois.index');
         //
     }
 
@@ -36,7 +37,15 @@ class heroisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validar os Inputs
+        $request->validate([
+            'nome'=>'required',
+            'classe'=>'required'
+        ]);
+        //Criar novo heroi no banco de dados
+        Herois::create($request->all());
+        //Redirecionar o usuário e enviar uma mensagem de sucesso ou erro
+        return redirect()->route('herois.create')->with('success','Heroi criado com sucesso!');
     }
 
     /**
