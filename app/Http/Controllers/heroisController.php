@@ -14,7 +14,10 @@ class heroisController extends Controller
      */
     public function index()
     {
-        return view('herois.index');
+        //
+        $herois = Herois::latest()->paginate(5);
+        return view('herois.index', compact('herois'))->with(request()->input('page'));
+        
         //
     }
 
@@ -45,7 +48,7 @@ class heroisController extends Controller
         //Criar novo heroi no banco de dados
         Herois::create($request->all());
         //Redirecionar o usuário e enviar uma mensagem de sucesso ou erro
-        return redirect()->route('herois.create')->with('success','Heroi criado com sucesso!');
+        return redirect()->route('herois.index')->with('success','Heroi criado com sucesso!');
     }
 
     /**

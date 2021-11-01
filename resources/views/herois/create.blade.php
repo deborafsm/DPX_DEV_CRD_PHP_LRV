@@ -12,15 +12,15 @@
     <a class="btn btn-primary" href="{{route('herois.index')}}">Back</a>
 
     @if ($errors->any())
-    <div class="alert">
-        <strong>Verifique os campos!</strong>
+    <div class="alert alert-danger">
+        <strong>Verifique os Campos!</strong> <br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{$errors}}</li>
+                <li>O nome do Heroi é obrigatório</li>
             @endforeach
         </ul>
     </div>
-    @endif
+@endif
     <form method="POST" action="{{route('herois.store')}}">
         @csrf
         <div class="mb-2 ">

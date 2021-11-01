@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('herois/index');
 });
 // Route::get('/adicionar_herois', function() {
 //     return View('addHerois');
