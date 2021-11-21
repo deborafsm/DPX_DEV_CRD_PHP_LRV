@@ -1,0 +1,9 @@
+
+Adiciona o model e o controller utilizando o comando.
+.
+php artisan make:controller PostController --resource  --model=Post
+
+
+php artisan make:migration create_herois_table --create=herois
+
+php artisan migrate:refresh

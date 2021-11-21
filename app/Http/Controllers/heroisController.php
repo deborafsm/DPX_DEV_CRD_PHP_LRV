@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\herois;
+use App\Models\Herois;
 use Illuminate\Http\Request;
 
 class heroisController extends Controller
@@ -15,14 +15,14 @@ class heroisController extends Controller
      */
     public function index()
     {
-        
-        $herois = herois::latest()->paginate(5);
 
-        return view('herois.index', compact('herois'))
+        $Herois = Herois::latest()->paginate(5);
+
+        return view('herois.index', compact('Herois'))
             ->with(request()->input('page'));
-        
-        // $herois = herois::latest()->paginate(5);
-        // return view('herois.index', compact('herois'))->with(request()->input('page'));
+
+        // $Herois = Herois::latest()->paginate(5);
+        // return view('Herois.index', compact('Herois'))->with(request()->input('page'));
 
         //
     }
@@ -48,10 +48,11 @@ class heroisController extends Controller
     { //Validar os Inputs
         $request->validate([
             'nome' => 'required',
-            'classe' => 'required'
+            'classe' => 'required',
         ]);
         //Criar novo heroi no banco de dados
-        herois::create($request->all());
+        Herois::create($request->all());
+
         //Redirecionar o usuário e enviar uma mensagem de sucesso ou erro
         return redirect()->route('herois.index')
             ->with('success', 'Heroi criado com sucesso!');
@@ -60,58 +61,60 @@ class heroisController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\herois  $herois
+     * @param  \App\Models\Herois  $Herois
      * @return \Illuminate\Http\Response
      */
-    public function show(herois $herois)
+    public function show(Herois $Herois)
     {
         //Mostrar detalhes
-        return view('herois.show', compact('herois'));
+        return view('herois.show', compact('Herois'));
+       
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\herois  $herois
+     * @param  \App\Models\Herois  $Herois
      * @return \Illuminate\Http\Response
      */
-    public function edit(herois $herois)
+    public function edit(Herois $Herois)
     {
         //Retorna a view de edicao
-        return view('herois.edit',compact('herois'));
+        return view('herois.edit', compact('Herois'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\herois  $herois
+     * @param  \App\Models\Herois  $Herois
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, herois $herois)
+    public function update(Request $request, Herois $Herois)
     {
         //Validar os Inputs
         $request->validate([
             'nome' => 'required',
-            'classe' => 'required'
+            'classe' => 'required',
         ]);
         //Criar novo heroi no banco de dados
-        $herois->update($request->all());
+        $Herois->update($request->all());
         //Redirecionar o usuário e enviar uma mensagem de sucesso ou erro
-        return redirect()->route('herois.index')->with('success', 'Heroi atualizado com sucesso!');
+        return redirect()->route('herois.index')
+                ->with('success', 'Heroi atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\herois  $herois
+     * @param  \App\Models\Herois  $Herois
      * @return \Illuminate\Http\Response
      */
-    public function destroy(herois $herois)
+    public function destroy(Herois $Herois)
     {
-        $herois->delete();
+        $Herois->delete();
 
         return redirect()->route('herois.index')
-                        ->with('success','Heroi deleted successfully');
+                ->with('success', 'Heroi deleted successfully');
     }
 }

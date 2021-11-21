@@ -16,14 +16,14 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nome:</strong>
-            {{$herois->nome}}
+            {{$Herois->nome}}
         </div>
         
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Classe:</strong>
-            {{$herois->classe}}
+            {{$Herois->classe}}
         </div>
     </div>
 </div>
