@@ -19,7 +19,12 @@
     {{-- Formulário para cadastrar um heroi --}}
 
     <div class="container_principal">
-        <p>Exibindo o heroi de número {{$id}}</p>
+        <p>Exibindo o heroi de número {{$id}}   </p>
+       {{--  http://127.0.0.1:8000/show/8 --}}
+        @if ($busca != '')
+            <p>O usuário está buscando por: {{$busca}}</p>
+            {{-- http://127.0.0.1:8000/show?search=eldas --}}
+        @endif
     </div>
 
 @endsection

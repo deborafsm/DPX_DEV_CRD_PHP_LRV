@@ -35,9 +35,15 @@ Route::get('/', function () {
 
     );
 });
-Route::get('/show/{id}', function($id){
-    return view('showId', ['id' => $id]);
+Route::get('/show', function () {
+    $busca = request('search');
+    return view('show', ['busca' => $busca]);
 });
+// chama a view mas esperando um parametro ex: .../show/858
+Route::get('/show/{id}', function ($id) {
+    return view('show', ['id' => $id]);
+});
+
 // Chamamando view através do controler 
 // @ -> indicação index -> metodo
 // Route::get('/', 'heroisController@index');
