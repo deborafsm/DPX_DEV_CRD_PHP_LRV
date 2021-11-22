@@ -1,0 +1,26 @@
+*{
+    font-family: 'Kanit', sans-serif;
+
+}
+img {
+    width: 100px;
+}
+
+.container_principal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 79vh;
+    max-height: 50%;
+    padding: 100px 35px 0px 35px;
+    border: 1px solid black;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+}
