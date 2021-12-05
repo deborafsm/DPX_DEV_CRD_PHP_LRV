@@ -1,9 +1,31 @@
+========================= CONTROLLER - ROTAS - VIEW ==============================
+--1º Criar um controler 
+php artisan make:controller <NOME_DO_CONTROLER>
+--2º RENDERIZAR UMA PÁGINA
+0º CRIAR A VIEW (index.blade.php)
+1º ADICIONAR NA ROTA  (Route::get('/', [<NOME_DO_CONTROLER>::class, 'index']);)
+2º RETORNAR A VIEW NO CONTROLLER (public function index() {return view('index');})
 
 Adiciona o model e o controller utilizando o comando.
 .
 php artisan make:controller PostController --resource  --model=Post
-
-
+================================== CONEXAO BD  =====================================
+Adicionar no .env os parametros do banco de dados
+DB_CONNECTION=mysql
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+=================================== MIGRATIONS =====================================
+-- Para CRIAR UMA TABELA --
 php artisan make:migration create_herois_table --create=herois
 
+-- Para Atualizar --
 php artisan migrate:refresh
+
+-- Para verificar o que foi executado --
+php artisan migrate:status
+
+-- Aonde que fica as Migrations 
+database/migrations/
